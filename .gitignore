@@ -1,0 +1,17 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment / secrets (future backend)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Temporary files
+*.log
+.tmp/
+tmp/
