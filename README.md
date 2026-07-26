@@ -10,6 +10,8 @@
 
 CAISO Congestion Intelligence is an AI-product prototype designed to translate a transmission **constraint** and **constraint cause / contingency** into an intuitive geographic explanation of the congestion event.
 
+An interactive, map-first platform for understanding CAISO transmission congestion, contingencies, source/sink dynamics, outage sensitivity and the primary market drivers influencing constraint severity.
+
 The product is intentionally map-first: a trader or beginner should be able to understand the physical story visually, while analysts and engineers can open deeper layers for market and transmission detail.
 
 ### Core experience
