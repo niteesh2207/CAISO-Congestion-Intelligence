@@ -1,6 +1,6 @@
 # CAISO Congestion Intelligence
 
-**Interactive, map-first congestion intelligence for CAISO power markets.**
+**Interactive Trader Intelligence for CAISO Transmission Congestion.**
 
 > Portfolio prototype · Last reviewed July 25, 2026
 
