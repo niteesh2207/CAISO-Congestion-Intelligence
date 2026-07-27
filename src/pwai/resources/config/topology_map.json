@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "provenance": "SYNTHETIC_DEMO_FULL_TOPOLOGY",
+  "substations": [
+    {
+      "name": "CENTRAL",
+      "planning_bus": 301
+    },
+    {
+      "name": "EAST",
+      "planning_bus": 401
+    },
+    {
+      "name": "SOUTH",
+      "planning_bus": 501
+    }
+  ],
+  "planning_to_breakers": {
+    "301-401-1": [
+      {
+        "name": "CB_301_401_A",
+        "type": "Breaker",
+        "status": "Closed"
+      },
+      {
+        "name": "CB_301_401_B",
+        "type": "Breaker",
+        "status": "Closed"
+      }
+    ],
+    "301-501-1": [
+      {
+        "name": "CB_301_501_A",
+        "type": "Breaker",
+        "status": "Closed"
+      },
+      {
+        "name": "CB_301_501_B",
+        "type": "Breaker",
+        "status": "Closed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "provenance": "SYNTHETIC_DEMO_RESERVE_MARKET",
+  "requirement_mw": 300.0,
+  "service": "SPINNING",
+  "providers": [
+    {
+      "bus": 101,
+      "id": "1",
+      "type": "GEN",
+      "max_reserve_mw": 180.0,
+      "bid_usd_per_mwh": 7.0
+    },
+    {
+      "bus": 201,
+      "id": "1",
+      "type": "GEN",
+      "max_reserve_mw": 120.0,
+      "bid_usd_per_mwh": 12.0
+    },
+    {
+      "bus": 401,
+      "id": "1",
+      "type": "GEN",
+      "max_reserve_mw": 90.0,
+      "bid_usd_per_mwh": 22.0
+    },
+    {
+      "bus": 501,
+      "id": "B1",
+      "type": "BESS",
+      "max_reserve_mw": 150.0,
+      "bid_usd_per_mwh": 5.0
+    },
+    {
+      "bus": 301,
+      "id": "B2",
+      "type": "BESS",
+      "max_reserve_mw": 100.0,
+      "bid_usd_per_mwh": 6.0
+    }
+  ]
+}

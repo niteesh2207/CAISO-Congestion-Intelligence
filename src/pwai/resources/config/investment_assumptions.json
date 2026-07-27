@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "provenance": "SYNTHETIC_DEVELOPMENT_ASSUMPTIONS",
+  "currency": "USD",
+  "transmission": {
+    "upgrade_delta_mva": 200.0,
+    "capex_usd": 80000000.0,
+    "economic_life_years": 40,
+    "discount_rate": 0.07,
+    "fixed_om_pct_capex_per_year": 0.01
+  },
+  "storage": {
+    "incremental_portfolio_capex_usd": 0.0,
+    "economic_life_years": 15,
+    "discount_rate": 0.08,
+    "fixed_om_pct_capex_per_year": 0.025
+  },
+  "analysis": {
+    "representative_congested_hours_per_year": 1000.0
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "verified_as_of": "2026-07-27",
+  "priority": [
+    "POWERWORLD_SOLVER",
+    "POWERWORLD_OFFICIAL_DOCS",
+    "ISO_RTO_OFFICIAL",
+    "FERC_NERC_EIA_GOVERNMENT",
+    "UTILITY_BALANCING_AUTHORITY",
+    "AUTHORIZED_PREMIUM_LICENSED",
+    "SECONDARY_CONTEXT"
+  ],
+  "premium_data_policy": {
+    "claim_without_credentials": false,
+    "require_entitlement": true,
+    "examples": [
+      "Yes Energy",
+      "Bloomberg",
+      "S&P Global Commodity Insights",
+      "Wood Mackenzie",
+      "ICE",
+      "Argus",
+      "Enverus"
+    ]
+  },
+  "security": {
+    "CEII_default_classification": "RESTRICTED",
+    "allow_cloud_upload_without_authorization": false
+  },
+  "tier_integrations": {
+    "visual_grid_canvas": {
+      "authoritative": [
+        "POWERWORLD_CASE_GEOGRAPHY",
+        "POWERWORLD_SOLVER"
+      ],
+      "fallback": "DERIVED_STUDY_LAYOUT"
+    },
+    "difference_replay": {
+      "authoritative": [
+        "POWERWORLD_DIFFERENCE_CASE",
+        "POWERWORLD_SOLVER_SNAPSHOTS"
+      ]
+    },
+    "ras": {
+      "authoritative": [
+        "POWERWORLD_REMEDIAL_ACTIONS",
+        "UTILITY_RAS_OPERATING_GUIDE"
+      ],
+      "restricted_by_default": true
+    },
+    "weather_dlr": {
+      "authoritative": [
+        "POWERWORLD_CONFIGURED_WEATHER_MODELS",
+        "TRANSMISSION_OWNER_DYNAMIC_RATING_FEED",
+        "NOAA_NWS_OR_EQUIVALENT_OFFICIAL_WEATHER"
+      ],
+      "premium_optional": [
+        "AUTHORIZED_WEATHER_OR_DLR_VENDOR_FEED"
+      ]
+    },
+    "reserves": {
+      "authoritative": [
+        "POWERWORLD_OPF_RESERVES",
+        "ISO_RTO_OFFICIAL_RESERVE_REQUIREMENTS_AND_PRICES"
+      ]
+    },
+    "full_topology": {
+      "authoritative": [
+        "POWERWORLD_INTEGRATED_TOPOLOGY_PROCESSING",
+        "UTILITY_EMS_SCADA_TOPOLOGY"
+      ],
+      "restricted_by_default": true
+    },
+    "scenario_generation": {
+      "authoritative_inputs": [
+        "ISO_RTO_LOAD_RENEWABLE_OUTAGE_FORECASTS",
+        "OFFICIAL_WEATHER",
+        "UTILITY_TRANSMISSION_OUTAGES",
+        "AUTHORIZED_PREMIUM_FORECASTS"
+      ]
+    }
+  }
+}

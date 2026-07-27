@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "id": "power_engineer",
+      "label": "Power Engineer",
+      "default_depth": "expert",
+      "focus": [
+        "electrical mechanism",
+        "limits",
+        "sensitivities",
+        "solver evidence"
+      ]
+    },
+    {
+      "id": "system_operator",
+      "label": "System Operator",
+      "default_depth": "professional",
+      "focus": [
+        "security",
+        "contingencies",
+        "headroom",
+        "remedial actions",
+        "operability"
+      ]
+    },
+    {
+      "id": "transmission_planner",
+      "label": "Transmission Planner",
+      "default_depth": "expert",
+      "focus": [
+        "N-1",
+        "ATC",
+        "PV/QV",
+        "upgrades",
+        "reliability"
+      ]
+    },
+    {
+      "id": "market_analyst",
+      "label": "Market Analyst",
+      "default_depth": "professional",
+      "focus": [
+        "congestion",
+        "LMP",
+        "shadow price",
+        "outages",
+        "source/sink"
+      ]
+    },
+    {
+      "id": "trader",
+      "label": "Trader",
+      "default_depth": "professional",
+      "focus": [
+        "constraint direction",
+        "price separation",
+        "binding risk",
+        "market impact"
+      ]
+    },
+    {
+      "id": "bess_developer",
+      "label": "BESS Developer",
+      "default_depth": "professional",
+      "focus": [
+        "siting",
+        "SOC",
+        "MW/MWh",
+        "congestion relief",
+        "opportunity cost"
+      ]
+    },
+    {
+      "id": "interconnection_engineer",
+      "label": "Interconnection Engineer",
+      "default_depth": "expert",
+      "focus": [
+        "headroom",
+        "thermal",
+        "voltage",
+        "fault/dynamic follow-up",
+        "network upgrades"
+      ]
+    },
+    {
+      "id": "executive",
+      "label": "Executive",
+      "default_depth": "simple",
+      "focus": [
+        "risk",
+        "business impact",
+        "recommended action",
+        "decision confidence"
+      ]
+    },
+    {
+      "id": "student",
+      "label": "Student / Training",
+      "default_depth": "simple",
+      "focus": [
+        "plain-language explanation",
+        "step-by-step learning",
+        "definitions"
+      ]
+    }
+  ],
+  "depths": [
+    "simple",
+    "professional",
+    "expert"
+  ]
+}

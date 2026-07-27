@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "provenance": "SYNTHETIC_DEMO_WEATHER",
+  "scenarios": {
+    "HOT_LOW_WIND": {
+      "ambient_c": 41.0,
+      "wind_mps": 1.2,
+      "description": "Synthetic hot, low-cooling condition.",
+      "branch_rating_multiplier": {
+        "301-401-1": 0.92,
+        "301-501-1": 0.9,
+        "401-501-1": 0.94
+      },
+      "generator_max_multiplier": {
+        "101/1": 0.97
+      }
+    },
+    "COOL_WINDY": {
+      "ambient_c": 22.0,
+      "wind_mps": 6.5,
+      "description": "Synthetic cool, higher-cooling condition.",
+      "branch_rating_multiplier": {
+        "301-401-1": 1.08,
+        "301-501-1": 1.12,
+        "401-501-1": 1.08
+      },
+      "generator_max_multiplier": {
+        "101/1": 1.0
+      }
+    }
+  }
+}

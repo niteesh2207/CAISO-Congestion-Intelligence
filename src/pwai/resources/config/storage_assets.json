@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "bus": 501,
+      "id": "B1",
+      "energy_mwh": 1200.0,
+      "soc_pct": 60.0,
+      "soc_min_pct": 10.0,
+      "soc_max_pct": 90.0,
+      "charge_efficiency": 0.95,
+      "discharge_efficiency": 0.95,
+      "source": "DEMO_SYNTHETIC_STORAGE_METADATA",
+      "verified": true,
+      "notes": "Synthetic V0.12 development battery."
+    },
+    {
+      "bus": 301,
+      "id": "B2",
+      "energy_mwh": 600.0,
+      "soc_pct": 45.0,
+      "soc_min_pct": 10.0,
+      "soc_max_pct": 90.0,
+      "charge_efficiency": 0.93,
+      "discharge_efficiency": 0.93,
+      "source": "DEMO_SYNTHETIC_STORAGE_METADATA",
+      "verified": true,
+      "notes": "Second synthetic V0.12 portfolio battery."
+    }
+  ]
+}

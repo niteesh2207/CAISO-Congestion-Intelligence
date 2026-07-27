@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "provenance": "SYNTHETIC_DEVELOPMENT_ENSEMBLE",
+  "scenarios": [
+    {
+      "name": "BASE",
+      "probability": 0.4,
+      "load_scale": 1.0,
+      "price_scale": 1.0,
+      "relief_scale": 1.0
+    },
+    {
+      "name": "HOT_HIGH_LOAD",
+      "probability": 0.2,
+      "load_scale": 1.08,
+      "price_scale": 1.2,
+      "relief_scale": 1.3
+    },
+    {
+      "name": "RENEWABLE_SURPLUS",
+      "probability": 0.15,
+      "load_scale": 0.94,
+      "price_scale": 0.7,
+      "relief_scale": 0.85
+    },
+    {
+      "name": "TRANSMISSION_STRESS",
+      "probability": 0.15,
+      "load_scale": 1.03,
+      "price_scale": 1.1,
+      "relief_scale": 1.5
+    },
+    {
+      "name": "MILD_LOW_STRESS",
+      "probability": 0.1,
+      "load_scale": 0.96,
+      "price_scale": 0.85,
+      "relief_scale": 0.65
+    }
+  ]
+}

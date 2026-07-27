@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PowerWorld AI Grid Studio V1.1</title>
+<style>
+:root{
+  --bg:#09111f;--panel:#111c2e;--panel2:#17243a;--line:#263650;
+  --text:#eef5ff;--muted:#9eb0c8;--cyan:#37c8ff;--green:#53e0a3;
+  --amber:#ffcb66;--red:#ff6b7a;--purple:#b79cff;--blue:#609cff;
+}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input{font:inherit}.shell{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+.sidebar{padding:20px;border-right:1px solid var(--line);background:#0c1627;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{font-weight:800;font-size:19px}.version{font-size:11px;color:var(--cyan);margin-top:5px}
+.section-title{font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin:22px 0 10px}
+.study{width:100%;text-align:left;border:1px solid var(--line);background:var(--panel);color:var(--text);
+padding:10px 12px;border-radius:10px;margin:5px 0;cursor:pointer}.study:hover{border-color:var(--cyan)}
+.tier{display:inline-block;font-size:9px;padding:2px 5px;border-radius:5px;margin-right:6px;background:#203551;color:#bfeaff}
+.main{padding:20px;min-width:0}.topbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:15px}
+.status{display:flex;gap:8px;flex-wrap:wrap}.chip{font-size:11px;border:1px solid var(--line);border-radius:99px;padding:5px 8px;color:var(--muted)}
+.chip.good{color:var(--green)}.grid{display:grid;grid-template-columns:minmax(480px,1.25fr) minmax(360px,.75fr);gap:15px}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:14px;padding:14px;min-width:0}
+.canvas-wrap{height:590px;position:relative;overflow:hidden;background:radial-gradient(circle at center,#13223a 0,#0b1424 68%);border-radius:11px}
+svg{width:100%;height:100%}.edge{stroke:#5c7395;stroke-width:3;opacity:.75}.edge.watch{stroke:var(--amber);stroke-width:5}.edge.high,.edge.critical{stroke:var(--red);stroke-width:6}.edge.focus{stroke:var(--cyan);stroke-width:8}
+.node circle{fill:#14243b;stroke:#7186a4;stroke-width:2}.node.watch circle{stroke:var(--amber);stroke-width:4}.node.high circle,.node.critical circle{stroke:var(--red);stroke-width:5}.node.source circle{fill:#173f37;stroke:var(--green);stroke-width:5}.node.sink circle{fill:#38254a;stroke:var(--purple);stroke-width:5}
+.label{fill:#f4f8ff;font-size:12px;font-weight:700}.small{fill:#9eb0c8;font-size:10px}.flow{fill:#c9d7ea;font-size:10px}
+.panel-title{font-weight:800;margin-bottom:9px}.muted{color:var(--muted)}.answer{line-height:1.45}.answer h3{margin:13px 0 5px}
+.askbox{display:flex;gap:8px;margin-top:12px}.askbox input{flex:1;background:#0b1525;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:11px}
+.primary{border:none;background:var(--cyan);color:#00101a;font-weight:800;border-radius:9px;padding:10px 13px;cursor:pointer}
+.confirm{background:var(--green);color:#04140e;margin-top:10px}.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.metric{background:var(--panel2);border-radius:9px;padding:9px}.metric b{display:block;font-size:18px}.metric span{font-size:10px;color:var(--muted)}
+.json{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;max-height:250px;overflow:auto;background:#07101e;padding:10px;border-radius:9px;color:#a9bdd8}
+.legend{position:absolute;bottom:10px;left:10px;background:#07101ed8;border:1px solid var(--line);border-radius:9px;padding:8px;font-size:10px;color:var(--muted)}
+.legend i{display:inline-block;width:15px;height:4px;margin:0 5px 2px 8px;background:#5c7395}.legend .r{background:var(--red)}.legend .a{background:var(--amber)}.legend .c{background:var(--cyan)}
+@media(max-width:1000px){.shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid{grid-template-columns:1fr}.canvas-wrap{height:500px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <div class="brand">PowerWorld AI Grid Studio</div>
+  <div class="version">V1.1 · Tier 1 + Tier 2 Intelligence</div>
+
+  <div class="section-title">Tier 1 · Make PowerWorld easier</div>
+  <button class="study" data-q="Show the visual grid canvas."><span class="tier">T1</span>Visual Grid Canvas</button>
+  <button class="study" data-q="Show before/after flow replay if line 301-401 circuit 1 trips."><span class="tier">T1</span>Difference / Flow Replay</button>
+  <button class="study" data-q="How much additional transfer from bus 101 to bus 501 before monitored branch 301-501 circuit 1 reaches its limit?"><span class="tier">T1</span>Grid Headroom</button>
+  <button class="study" data-q="What RAS protects this corridor and what happens without RAS?"><span class="tier">T1</span>RAS Intelligence</button>
+
+  <div class="section-title">Tier 2 · Operating intelligence</div>
+  <button class="study" data-q="Evaluate hot low wind weather risk and dynamic line ratings."><span class="tier">T2</span>Weather + DLR</button>
+  <button class="study" data-q="Show reserve intelligence and spinning reserve opportunity cost for batteries."><span class="tier">T2</span>Reserve Intelligence</button>
+  <button class="study" data-q="Show full topology and translate line 301-401 circuit 1 to breaker-level actions."><span class="tier">T2</span>Full Topology / EMS</button>
+  <button class="study" data-q="Generate automatic scenarios for what we should worry about tomorrow."><span class="tier">T2</span>Automatic Scenario Generator</button>
+
+  <div class="section-title">Existing V1 stack</div>
+  <button class="study" data-q="Investigate this case autonomously and tell me what matters most.">Autonomous Investigator</button>
+  <button class="study" data-q="Which generators can relieve contingency L_301_401 on branch 301-501?">CTG Relief</button>
+  <button class="study" data-q="Optimize the existing battery portfolio over the next 6 hours using the configured time-series scenario.">Multi-Hour BESS</button>
+  <button class="study" data-q="Compare storage vs wires for branch 301-501, source bus 101 sink bus 501.">Storage vs Wires</button>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <div><b>Interactive Engineering Workspace</b><div class="muted" style="font-size:12px">Click the grid. Ask what you want to accomplish—not which PowerWorld dialog to open.</div></div>
+    <div class="status"><span class="chip good" id="status">Connecting…</span><span class="chip">Evidence-first</span><span class="chip">Protected scenarios</span></div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <div class="panel-title">Visual Grid Canvas</div>
+      <div class="canvas-wrap">
+        <svg id="canvas" viewBox="0 0 1000 700" aria-label="Power system visual grid canvas"></svg>
+        <div class="legend"><i></i>normal <i class="a"></i>watch <i class="r"></i>critical <i class="c"></i>focus</div>
+      </div>
+      <div class="askbox">
+        <input id="q" value="Explain this PowerWorld case." aria-label="Engineering question">
+        <button class="primary" id="ask">Run study</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="panel-title">Study Intelligence</div>
+      <div id="result" class="answer muted">Select a Tier 1 / Tier 2 study or ask an engineering question.</div>
+      <button id="confirm" class="primary confirm" style="display:none">Run protected scenario</button>
+      <div class="metrics" id="metrics"></div>
+      <details style="margin-top:12px"><summary class="muted">Evidence / analysis payload</summary><pre id="raw" class="json"></pre></details>
+    </section>
+  </div>
+</main>
+</div>
+
+<script>
+const svg=document.getElementById('canvas'), result=document.getElementById('result'),
+raw=document.getElementById('raw'), metrics=document.getElementById('metrics'),
+q=document.getElementById('q'), confirmBtn=document.getElementById('confirm');
+let pending=null;
+
+function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+async function loadNetwork(){
+  const r=await fetch('/api/network'); const d=await r.json();
+  draw(d); document.getElementById('status').textContent=`${d.nodes?.length||0} buses · ${d.edges?.length||0} branches · ${d.layout_mode||'layout'}`;
+}
+function draw(d){
+  svg.innerHTML='';
+  const nodes=new Map((d.nodes||[]).map(n=>[Number(n.bus),n]));
+  for(const e of d.edges||[]){
+    const a=nodes.get(Number(e.from)),b=nodes.get(Number(e.to)); if(!a||!b)continue;
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',a.x);line.setAttribute('y1',a.y);line.setAttribute('x2',b.x);line.setAttribute('y2',b.y);
+    line.setAttribute('class',`edge ${(e.severity||'').toLowerCase()} ${e.focus?'focus':''}`);
+    line.addEventListener('click',()=>{q.value=`Explain branch ${e.from}-${e.to} circuit ${e.circuit}.`;});
+    svg.appendChild(line);
+    const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',(a.x+b.x)/2);t.setAttribute('y',(a.y+b.y)/2-7);t.setAttribute('class','flow');
+    t.textContent=`${e.mw==null?'—':Number(e.mw).toFixed(0)} MW · ${e.loading_pct==null?'—':Number(e.loading_pct).toFixed(0)}%`;
+    svg.appendChild(t);
+  }
+  for(const n of d.nodes||[]){
+    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('class',`node ${(n.severity||'').toLowerCase()} ${(n.role||'').toLowerCase()}`);
+    g.setAttribute('transform',`translate(${n.x},${n.y})`);
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('r',n.has_bess?28:23);g.appendChild(c);
+    const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('class','label');t.setAttribute('text-anchor','middle');t.setAttribute('y','4');t.textContent=n.bus;g.appendChild(t);
+    const s=document.createElementNS('http://www.w3.org/2000/svg','text');s.setAttribute('class','small');s.setAttribute('text-anchor','middle');s.setAttribute('y','43');s.textContent=`${n.name||''} ${n.voltage_pu==null?'':Number(n.voltage_pu).toFixed(3)+' pu'}${n.has_bess?' · BESS':''}`;g.appendChild(s);
+    g.addEventListener('click',()=>{q.value=`Explain bus ${n.bus} ${n.name||''}.`;});
+    svg.appendChild(g);
+  }
+}
+function setMetrics(a){
+  metrics.innerHTML='';
+  const vals=[];
+  if(a?.type==='GRID_HEADROOM'){vals.push(['Verified headroom',`${Number(a.verified_secure_transfer_mw).toFixed(0)} MW`],['PTDF',`${Number(a.ptdf_pct).toFixed(1)}%`]);}
+  if(a?.type==='WEATHER_DLR'&&a.branch_changes?.length){vals.push(['Worst loading',`${Number(a.branch_changes[0].weather_loading_pct).toFixed(1)}%`],['Scenario',a.scenario]);}
+  if(a?.type==='RESERVE_INTELLIGENCE'){vals.push(['Reserve cleared',`${Number(a.cleared_mw||0).toFixed(0)} MW`],['RMCP',a.rmcp_usd_per_mwh==null?'—':`$${Number(a.rmcp_usd_per_mwh).toFixed(2)}/MWh`]);}
+  if(a?.type==='AUTOMATIC_SCENARIO_GENERATOR'){vals.push(['Theoretical',a.theoretical_scenarios],['Retained',a.retained_scenarios]);}
+  if(a?.type==='RAS_INTELLIGENCE'&&a.loading_relief_pct_points!=null){vals.push(['RAS relief',`${Number(a.loading_relief_pct_points).toFixed(1)} pts`],['State restored',a.state_restored?'YES':'NO']);}
+  if(a?.type==='DIFFERENCE_FLOW_REPLAY'){vals.push(['Frames',a.frames?.length||0],['State restored',a.state_restored?'YES':'NO']);}
+  for(const [k,v] of vals){metrics.insertAdjacentHTML('beforeend',`<div class="metric"><b>${esc(v)}</b><span>${esc(k)}</span></div>`)}
+}
+async function ask(confirm=false){
+  result.textContent='Running study…'; confirmBtn.style.display='none';
+  const payload={question:q.value,confirm_changes:confirm};
+  const r=await fetch('/api/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  const d=await r.json(); if(!r.ok){result.innerHTML=`<b>Study error</b><br>${esc(d.detail||'Unknown error')}`;return}
+  pending=d.requires_confirmation?payload:null;
+  result.innerHTML=`<h3>${esc(d.analysis?.type||d.intent)}</h3><div>${esc(d.answer)}</div><h3>Why</h3><div>${esc(d.simple_explanation)}</div>`+
+    ((d.warnings||[]).length?`<h3>Guardrails</h3><div class="muted">${d.warnings.map(x=>'• '+esc(x)).join('<br>')}</div>`:'');
+  raw.textContent=JSON.stringify(d.analysis||d,null,2);setMetrics(d.analysis);
+  if(d.requires_confirmation){confirmBtn.style.display='inline-block'}
+  if(d.analysis?.type==='VISUAL_GRID_CANVAS')draw(d.analysis);
+}
+document.getElementById('ask').onclick=()=>ask(false);
+confirmBtn.onclick=()=>ask(true);
+document.querySelectorAll('.study').forEach(b=>b.onclick=()=>{q.value=b.dataset.q;ask(false)});
+q.addEventListener('keydown',e=>{if(e.key==='Enter')ask(false)});
+loadNetwork().catch(e=>{document.getElementById('status').textContent='Network load failed'});
+</script>
+</body>
+</html>

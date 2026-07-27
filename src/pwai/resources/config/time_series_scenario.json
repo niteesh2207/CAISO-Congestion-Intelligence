@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "name": "DEMO_6H_STORAGE_PORTFOLIO",
+  "description": "Synthetic development horizon only; not ISO/RTO market data.",
+  "monitored_branch": {
+    "from": 301,
+    "to": 501,
+    "circuit": "1"
+  },
+  "outage_branch": {
+    "from": 301,
+    "to": 401,
+    "circuit": "1"
+  },
+  "reference_bus": 101,
+  "balancing_generator": {
+    "bus": 101,
+    "id": "1"
+  },
+  "action_step_mw": 50.0,
+  "throughput_cost_per_mwh": 2.0,
+  "unserved_relief_penalty_per_mwh": 250.0,
+  "terminal_soc_target_pct": {
+    "501/B1": 35.0,
+    "301/B2": 30.0
+  },
+  "terminal_soc_penalty_per_pct": 200.0,
+  "timepoints": [
+    {
+      "timestamp": "2026-07-27T12:00:00-07:00",
+      "duration_hours": 1.0,
+      "load_multiplier": 0.9,
+      "energy_price_per_mwh": -15.0,
+      "required_relief_mw": 0.0
+    },
+    {
+      "timestamp": "2026-07-27T13:00:00-07:00",
+      "duration_hours": 1.0,
+      "load_multiplier": 0.92,
+      "energy_price_per_mwh": -5.0,
+      "required_relief_mw": 0.0
+    },
+    {
+      "timestamp": "2026-07-27T14:00:00-07:00",
+      "duration_hours": 1.0,
+      "load_multiplier": 0.95,
+      "energy_price_per_mwh": 10.0,
+      "required_relief_mw": 40.0
+    },
+    {
+      "timestamp": "2026-07-27T16:00:00-07:00",
+      "duration_hours": 1.0,
+      "load_multiplier": 1.05,
+      "energy_price_per_mwh": 55.0,
+      "required_relief_mw": 120.0
+    },
+    {
+      "timestamp": "2026-07-27T17:00:00-07:00",
+      "duration_hours": 1.0,
+      "load_multiplier": 1.1,
+      "energy_price_per_mwh": 90.0,
+      "required_relief_mw": 180.0
+    },
+    {
+      "timestamp": "2026-07-27T18:00:00-07:00",
+      "duration_hours": 1.0,
+      "load_multiplier": 1.08,
+      "energy_price_per_mwh": 120.0,
+      "required_relief_mw": 220.0
+    }
+  ]
+}

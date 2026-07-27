@@ -1,0 +1,124 @@
+from __future__ import annotations
+from enum import Enum
+from typing import Any
+from pydantic import BaseModel, Field
+
+
+class IntentFamily(str, Enum):
+    ASK = "ASK"
+    EXPLAIN = "EXPLAIN"
+    CHANGE = "CHANGE"
+    TEST = "TEST"
+    OPTIMIZE = "OPTIMIZE"
+
+
+class RiskClass(str, Enum):
+    READ_ONLY = "READ_ONLY"
+    SCENARIO_MUTATION = "SCENARIO_MUTATION"
+    OPTIMIZATION = "OPTIMIZATION"
+
+
+class Capability(str, Enum):
+    CASE_OVERVIEW = "CASE_OVERVIEW"
+    MODEL_DOCTOR = "MODEL_DOCTOR"
+    THERMAL_RANKING = "THERMAL_RANKING"
+    VOLTAGE_RANKING = "VOLTAGE_RANKING"
+    CONTINGENCY = "CONTINGENCY"
+    PTDF = "PTDF"
+    LODF = "LODF"
+    OTDF = "OTDF"
+    SHIFT_FACTOR_SCREEN = "SHIFT_FACTOR_SCREEN"
+    CAUSAL_DIAGNOSIS = "CAUSAL_DIAGNOSIS"
+    NATIVE_CONTINGENCY = "NATIVE_CONTINGENCY"
+    N1_SECURITY = "N1_SECURITY"
+    CAPABILITY_REGISTRY = "CAPABILITY_REGISTRY"
+    OPF = "OPF"
+    SCOPF = "SCOPF"
+    ECONOMIC_OPTIMIZATION = "ECONOMIC_OPTIMIZATION"
+    LMP_DECOMPOSITION = "LMP_DECOMPOSITION"
+    BINDING_CONSTRAINTS = "BINDING_CONSTRAINTS"
+    CONSTRAINT_ECONOMICS = "CONSTRAINT_ECONOMICS"
+    TRADING_TRANSLATION = "TRADING_TRANSLATION"
+    BUILD_GUARDIAN = "BUILD_GUARDIAN"
+    SCOPF_CONTINGENCY_ECONOMICS = "SCOPF_CONTINGENCY_ECONOMICS"
+    SECURITY_PRICE_ATTRIBUTION = "SECURITY_PRICE_ATTRIBUTION"
+    MARKET_CALIBRATION = "MARKET_CALIBRATION"
+    CTG_INJECTION_SENSITIVITY = "CTG_INJECTION_SENSITIVITY"
+    CTG_RELIEF_RANKING = "CTG_RELIEF_RANKING"
+    BESS_SCREEN = "BESS_SCREEN"
+    BESS_REVERSIBLE_CONTROL = "BESS_REVERSIBLE_CONTROL"
+    BESS_INVENTORY = "BESS_INVENTORY"
+    BESS_ENERGY_FEASIBILITY = "BESS_ENERGY_FEASIBILITY"
+    BESS_SOLVED_ACTION = "BESS_SOLVED_ACTION"
+    BESS_ECONOMICS = "BESS_ECONOMICS"
+    TIME_STEP_SIMULATION = "TIME_STEP_SIMULATION"
+    TIME_SERIES_REPLAY = "TIME_SERIES_REPLAY"
+    BESS_PORTFOLIO = "BESS_PORTFOLIO"
+    BESS_MULTI_HOUR = "BESS_MULTI_HOUR"
+    GRID_TIME_MACHINE = "GRID_TIME_MACHINE"
+    TRANSMISSION_UPGRADE = "TRANSMISSION_UPGRADE"
+    STORAGE_VS_WIRES = "STORAGE_VS_WIRES"
+    INVESTMENT_ECONOMICS = "INVESTMENT_ECONOMICS"
+    BENEFICIARY_MAPPING = "BENEFICIARY_MAPPING"
+    SCENARIO_ENSEMBLE = "SCENARIO_ENSEMBLE"
+    RISK_ANALYTICS = "RISK_ANALYTICS"
+    STUDY_MEMORY = "STUDY_MEMORY"
+    KNOWLEDGE_GRAPH = "KNOWLEDGE_GRAPH"
+    AUTONOMOUS_INVESTIGATOR = "AUTONOMOUS_INVESTIGATOR"
+    RELEASE_HEALTH = "RELEASE_HEALTH"
+    ATC = "ATC"
+    PV_CURVE = "PV_CURVE"
+    QV_CURVE = "QV_CURVE"
+    TRANSIENT_STABILITY = "TRANSIENT_STABILITY"
+    IBR_INTELLIGENCE = "IBR_INTELLIGENCE"
+    ENTERPRISE_GOVERNANCE = "ENTERPRISE_GOVERNANCE"
+    VISUAL_GRID_CANVAS = "VISUAL_GRID_CANVAS"
+    DIFFERENCE_FLOW_REPLAY = "DIFFERENCE_FLOW_REPLAY"
+    GRID_HEADROOM = "GRID_HEADROOM"
+    RAS_INTELLIGENCE = "RAS_INTELLIGENCE"
+    WEATHER_INTELLIGENCE = "WEATHER_INTELLIGENCE"
+    DYNAMIC_LINE_RATING = "DYNAMIC_LINE_RATING"
+    RESERVE_INTELLIGENCE = "RESERVE_INTELLIGENCE"
+    FULL_TOPOLOGY = "FULL_TOPOLOGY"
+    AUTOMATIC_SCENARIO_GENERATOR = "AUTOMATIC_SCENARIO_GENERATOR"
+    SENSITIVITY = "SENSITIVITY"
+    REMEDY_SEARCH = "REMEDY_SEARCH"
+    FIELD_DISCOVERY = "FIELD_DISCOVERY"
+    RAW_QUERY = "RAW_QUERY"
+
+
+class StudyPlan(BaseModel):
+    question: str
+    intent: IntentFamily
+    risk: RiskClass
+    capabilities: list[Capability]
+    objective: str
+    requires_confirmation: bool
+    evidence_required: list[str] = Field(default_factory=list)
+    assumptions: list[str] = Field(default_factory=list)
+
+
+class Finding(BaseModel):
+    finding_id: str
+    severity: str
+    category: str
+    title: str
+    summary: str
+    simple_explanation: str
+    evidence: list[dict[str, Any]] = Field(default_factory=list)
+    confidence: str = "HIGH"
+
+
+class StudyAnswer(BaseModel):
+    answer: str
+    simple_explanation: str
+    intent: IntentFamily
+    risk: RiskClass
+    findings: list[Finding] = Field(default_factory=list)
+    evidence: list[dict[str, Any]] = Field(default_factory=list)
+    study_id: str
+    solver_backed: bool
+    warnings: list[str] = Field(default_factory=list)
+    requires_confirmation: bool = False
+    scenario_summary: dict[str, Any] | None = None
+    analysis: dict[str, Any] | None = None

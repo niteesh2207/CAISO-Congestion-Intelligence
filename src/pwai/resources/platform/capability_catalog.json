@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "product_version": "2.0.0-rc1",
+  "categories": [
+    {
+      "id": "understand",
+      "label": "Understand",
+      "description": "Inspect case health and explain network state.",
+      "examples": [
+        "Explain this case",
+        "Find weak buses",
+        "Show overloaded branches"
+      ],
+      "capabilities": [
+        "CASE_OVERVIEW",
+        "MODEL_DOCTOR",
+        "VISUAL_GRID_CANVAS"
+      ]
+    },
+    {
+      "id": "investigate",
+      "label": "Investigate",
+      "description": "Explain contingency, sensitivity, congestion, voltage, and causal behavior.",
+      "examples": [
+        "Why did this line overload?",
+        "Which buses worsen this constraint?",
+        "What changed after the outage?"
+      ],
+      "capabilities": [
+        "CONTINGENCY",
+        "PTDF",
+        "LODF",
+        "OTDF",
+        "CAUSAL_DIAGNOSIS",
+        "DIFFERENCE_FLOW_REPLAY"
+      ]
+    },
+    {
+      "id": "test",
+      "label": "Test",
+      "description": "Run protected what-if studies without overwriting the base case.",
+      "examples": [
+        "Trip this line",
+        "Test BESS discharge",
+        "Increase transfer until the limit"
+      ],
+      "capabilities": [
+        "PROTECTED_SCENARIO",
+        "BESS_SOLVED_ACTION",
+        "GRID_HEADROOM",
+        "RAS_INTELLIGENCE"
+      ]
+    },
+    {
+      "id": "optimize",
+      "label": "Optimize",
+      "description": "Find lower-cost or more secure operating points.",
+      "examples": [
+        "Run OPF",
+        "Find N-1 secure dispatch",
+        "Optimize batteries over six hours"
+      ],
+      "capabilities": [
+        "OPF",
+        "SCOPF",
+        "BESS_PORTFOLIO",
+        "RESERVE_INTELLIGENCE"
+      ]
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "description": "Compare infrastructure and siting alternatives.",
+      "examples": [
+        "Where should storage be placed?",
+        "Storage or wires?",
+        "What if rating increases 200 MVA?"
+      ],
+      "capabilities": [
+        "BESS_SCREEN",
+        "TRANSMISSION_UPGRADE",
+        "STORAGE_VS_WIRES",
+        "ATC",
+        "PV_CURVE",
+        "QV_CURVE"
+      ]
+    },
+    {
+      "id": "operate",
+      "label": "Operate",
+      "description": "Connect weather, topology, RAS, reserves, time-series, and scenario risk.",
+      "examples": [
+        "What should I worry about tomorrow?",
+        "Show breaker-level logic",
+        "Evaluate hot-low-wind condition"
+      ],
+      "capabilities": [
+        "WEATHER_INTELLIGENCE",
+        "FULL_TOPOLOGY",
+        "TIME_STEP_SIMULATION",
+        "AUTOMATIC_SCENARIO_GENERATOR",
+        "RAS_INTELLIGENCE"
+      ]
+    },
+    {
+      "id": "learn",
+      "label": "Learn",
+      "description": "Explain the same solver evidence at the user\u2019s chosen depth and role.",
+      "examples": [
+        "Explain simply",
+        "Explain as a trader",
+        "Show engineering deep dive"
+      ],
+      "capabilities": [
+        "ANSWER_PROFILES",
+        "EVIDENCE_LEDGER",
+        "STUDY_MEMORY"
+      ]
+    }
+  ]
+}

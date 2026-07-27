@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "market": null,
+  "study_date": null,
+  "status": "MODEL_ECONOMICS",
+  "inputs": {
+    "network_topology": {
+      "verified": false,
+      "source": "POWERWORLD_CASE_ONLY",
+      "notes": "No ISO/RTO or utility topology provenance has been registered."
+    },
+    "generator_offers_bids": {
+      "verified": false,
+      "source": "NOT_CONNECTED",
+      "notes": "PowerWorld engineering cost curves must not be assumed to equal market offers."
+    },
+    "unit_commitment_availability": {
+      "verified": false,
+      "source": "NOT_CONNECTED"
+    },
+    "transmission_outages": {
+      "verified": false,
+      "source": "NOT_CONNECTED"
+    },
+    "transmission_ratings": {
+      "verified": false,
+      "source": "POWERWORLD_CASE_ONLY"
+    },
+    "load_forecast_actual": {
+      "verified": false,
+      "source": "NOT_CONNECTED"
+    },
+    "renewable_forecast_actual": {
+      "verified": false,
+      "source": "NOT_CONNECTED"
+    },
+    "loss_model": {
+      "verified": false,
+      "source": "CASE_CONFIGURATION_NOT_EXTERNALLY_VERIFIED"
+    },
+    "market_rules_constraints": {
+      "verified": false,
+      "source": "NOT_CONNECTED"
+    }
+  }
+}

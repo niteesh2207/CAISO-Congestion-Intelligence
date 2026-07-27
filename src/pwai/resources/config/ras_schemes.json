@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "provenance": "SYNTHETIC_DEMO_RAS",
+  "schemes": [
+    {
+      "name": "RAS_301_401_RELIEF",
+      "armed": true,
+      "trigger": {
+        "type": "BRANCH_OUTAGE",
+        "from": 301,
+        "to": 401,
+        "circuit": "1"
+      },
+      "actions": [
+        {
+          "type": "BESS_DISCHARGE",
+          "bus": 501,
+          "id": "B1",
+          "mw": 150.0
+        },
+        {
+          "type": "GEN_BALANCE",
+          "bus": 101,
+          "id": "1",
+          "mw_delta": -150.0
+        }
+      ],
+      "purpose": "Synthetic development RAS used to test with/without-RAS causal comparison."
+    }
+  ]
+}
